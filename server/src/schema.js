@@ -18,10 +18,6 @@ const schema = `
     id: ID!
     host: User!
     title: String!
-    maxAttendees: Int
-    attendees: [String]!
-    private: Boolean!
-    recurring: Boolean!
     image: String
     tags: [String]!
     description: String

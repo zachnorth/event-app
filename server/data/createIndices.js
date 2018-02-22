@@ -36,9 +36,6 @@ async function createIndicies() {
             properties: {
               hostId: {type: 'keyword'},
               title: {type: 'text'},
-              maxAttendees: {type: 'integer'},
-              attendees: {type: 'keyword'},
-              private: {type: 'boolean'},
               image: {type: 'text', index: false},
               tags: {type: 'keyword'},
               description: {type: 'text'},
