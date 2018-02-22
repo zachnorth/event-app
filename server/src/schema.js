@@ -112,7 +112,6 @@ const schema = `
     locationDetails: String
     eventTimestampStart: String!
     eventTimestampEnd: String!
-
   }
 
   input AddressInput {
@@ -128,12 +127,8 @@ const schema = `
     lon: Int!
   }
 
-  input EventSearchInput {
-    query: String!
-  }
-
   type Query {
-    searchEvents(params: EventSearchInput): [Event]!
+    searchEvents(query: String!, offset: Int, limit: Int): [Event]!
   }
 
   type Mutation {
