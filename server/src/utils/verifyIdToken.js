@@ -1,10 +1,9 @@
 'use strict';
-const GoogleAuth = require('google-auth-library');
+const { OAuth2Client } = require('google-auth-library');
 
 const { GOOGLE_CLIENT_ID } = require('./constants');
 
-const auth = new GoogleAuth;
-const client = new auth.OAuth2(GOOGLE_CLIENT_ID, '', '');
+const client = new OAuth2Client(GOOGLE_CLIENT_ID, '', '');
 
 function verifyIdToken(token) {
   return new Promise((resolve, reject) => {

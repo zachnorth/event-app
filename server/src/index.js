@@ -4,7 +4,7 @@ require('dotenv').config({path: `${__dirname}/../../.env`});
 const Koa = require('koa');
 const Router = require('koa-router');
 const koaBody = require('koa-bodyparser');
-const { graphqlKoa } = require('graphql-server-koa');
+const { graphqlKoa, graphiqlKoa } = require('graphql-server-koa');
 const { makeExecutableSchema } = require('graphql-tools');
 const { formatError } = require('apollo-errors');
 const elasticsearch = require('elasticsearch');
@@ -41,6 +41,8 @@ router.post('/graphql', graphqlKoa((ctx) => {
     }
   };
 }));
+
+router.get('/graphiql', graphiqlKoa({ endpointURL: '/graphql' }));
 
 app.use(router.routes()).use(router.allowedMethods());
 

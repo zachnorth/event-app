@@ -1,7 +1,7 @@
 'use strict';
 
 const flattenResponse = require('../utils/flattenResponse');
-const { EVENT_INDEX } = rquire('../utils/constants');
+const { EVENT_INDEX } = require('../utils/constants');
 
 async function searchEvents({ client, offset, limit, query }) {
   try {

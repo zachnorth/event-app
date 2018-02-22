@@ -1,8 +1,8 @@
 'use strict';
 
-const searchEvents = require('../models/getFriends');
+const searchEvents = require('../models/searchEvents');
 
-async function searchEvents({ client, context, args: { offset, limit, query } }) {
+async function searchEventsResolver({ client, context, args: { offset, limit, query } }) {
   try {
     const events = await searchEvents({ 
       client, 
