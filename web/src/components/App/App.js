@@ -11,7 +11,7 @@ const App = () => (
   <Router>
     <Switch>
       <Route exact path='/' component={Landing} />
-      <AuthRoute exact path='/search/:query' component={Events} />
+      <AuthRoute exact path='/events' component={Events} />
       <AuthRoute exact path='/event/:id' component={Event} />
       <Route path ='/' component={NotFound} />
     </Switch>
