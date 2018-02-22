@@ -1,4 +1,6 @@
 import React from 'react';
+import { graphql } from 'react-apollo';
+import gql from 'graphql-tag';
 import 'typeface-pacifico';
 import 'lato-font';
 
@@ -11,7 +13,7 @@ const SCOPE = 'profile email';
 const GOOGLE_SIGN_IN_ERRORS = {
   idpiframe_initialization_failed: 'Enable third party cookies and reload the page',
   popup_closed_by_user: 'Please keep the popup window open until sign in flow is complete',
-  access_denied: 'Please allow permissions for Octograde to function properly',
+  access_denied: 'Please allow permissions for Event Aggregators to function properly',
   immediate_failed: 'Please sign into a google account in order to use Octograde'
 };
 
@@ -71,4 +73,18 @@ class Landing extends React.Component {
   };
 }
 
-export default Landing;
+const UserAuthMutation = gql`
+  mutation userAuth($token: String!) {
+    userAuth(token: $token) {
+      user {
+        id
+        email
+        name
+        profileImage
+      }
+      token
+    }
+  }
+`;
+
+export default graphql(UserAuthMutation)(Landing);

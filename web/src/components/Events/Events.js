@@ -1,7 +1,12 @@
 import React from 'react';
 
-const Events = () => (
-  <h1>Events</h1>
+import Header from '../Header/Header';
+
+const Events = ({ history }) => (
+  <div>
+    <Header history={history} />
+    <h1>Events</h1>
+  </div>
 );
 
 export default Events;
