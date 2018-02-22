@@ -5,7 +5,7 @@ const schema = `
     id: ID!
     email: String!
     name: String!
-    profileImage: String!
+    imageUrl: String!
     createdAt: String!
   }
 
