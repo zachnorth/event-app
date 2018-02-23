@@ -39,9 +39,6 @@ class Landing extends React.Component {
           </div>
         </div>
         <div className={styles.homeFooter}>
-          <a href="#"><p>About Us</p></a>
-          <a href="#"><p>Terms of service</p></a>
-          <a href="#"><p>Privacy Policy</p></a>
           <p>&#169; Copyright Event Aggregators 2018</p>
         </div>
       </div>

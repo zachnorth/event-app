@@ -50,15 +50,12 @@ class Header extends React.Component {
           style={appBarStyle}
           iconElementRight={
             <IconMenu
-              iconButtonElement={<IconButton style={{padding: 0}}><Avatar src="" /></IconButton>}
+              iconButtonElement={<IconButton style={{padding: 0}}><Avatar src={this.user.imageUrl} /></IconButton>}
               anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
               targetOrigin={{horizontal: 'right', vertical: 'top'}}
             >
-              <MenuItem primaryText="David Skrenta"/>
-              <MenuItem primaryText='Help'/>
-              <MenuItem primaryText='Support'/>
-              <MenuItem primaryText='Settings'/>
-              <MenuItem primaryText='Sign out' onClick={this.signOut}/>
+              <MenuItem primaryText={this.user.name} />
+              <MenuItem primaryText='Sign out' onClick={this.signOut} />
             </IconMenu>
           }
         />
