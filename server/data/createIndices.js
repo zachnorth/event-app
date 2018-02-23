@@ -19,7 +19,7 @@ async function createIndicies() {
           user: {
             properties: {
               email: {type: 'keyword'},
-              name: {type: 'object'},
+              name: {type: 'text'},
               imageUrl: {type: 'text', index: false},
               createdAt: {type: 'date'}
             }

@@ -24,9 +24,9 @@ async function createUser({
       }
     });
 
-    if (res.created) {
+    if (res.result === 'created') {
       return {
-        id: res._id,
+        id,
         name,
         email,
         imageUrl,

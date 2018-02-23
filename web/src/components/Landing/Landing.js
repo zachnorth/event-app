@@ -56,11 +56,13 @@ class Landing extends React.Component {
 
   onSuccess = async ({ tokenId }) => {
     try {
+      console.log(tokenId);
       const { data } = await this.props.mutate({
         variables: {
           token: tokenId
         }
       });
+      console.log(data);
       signIn(data.userAuth);
       this.props.history.push('/events');
     } catch (error) {
@@ -80,7 +82,7 @@ const UserAuthMutation = gql`
         id
         email
         name
-        profileImage
+        imageUrl
       }
       token
     }

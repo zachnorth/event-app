@@ -33,7 +33,7 @@ class Header extends React.Component {
   signOut = async () => {
     try {
       await signOut();
-      this.props.history.push('/landing');
+      this.props.history.push('/');
     } catch (error) {
       console.log(error);
     }
@@ -45,16 +45,16 @@ class Header extends React.Component {
     return (
       <div style={{marginBottom: '90px'}}>
         <AppBar
-          title={<Link to='/dash' style={linkStyle}>Event Aggregators</Link>}
+          title={<Link to='/landing' style={linkStyle}>Event Aggregators</Link>}
           titleStyle={{fontFamily: 'Pacifico', textAlign: 'center'}}
           style={appBarStyle}
           iconElementRight={
             <IconMenu
-              iconButtonElement={<IconButton style={{padding: 0}}><Avatar src={this.user.imageUrl} /></IconButton>}
+              iconButtonElement={<IconButton style={{padding: 0}}><Avatar src="" /></IconButton>}
               anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
               targetOrigin={{horizontal: 'right', vertical: 'top'}}
             >
-              <MenuItem primaryText={this.user.name}/>
+              <MenuItem primaryText="David Skrenta"/>
               <MenuItem primaryText='Help'/>
               <MenuItem primaryText='Support'/>
               <MenuItem primaryText='Settings'/>

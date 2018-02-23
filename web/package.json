@@ -2,6 +2,7 @@
   "name": "event-app-web",
   "version": "0.1.0",
   "private": false,
+  "proxy": "http://localhost:4000",
   "dependencies": {
     "apollo-cache-inmemory": "^1.1.9",
     "apollo-client": "^2.2.5",
