@@ -57,3 +57,8 @@ typings/
 # dotenv environment variables file
 .env
 
+# Cloud9 configuration
+.c9/
+
+# Misc
+.editorconfig
