@@ -62,3 +62,6 @@ typings/
 
 # Misc
 .editorconfig
+
+# For the love of God, don't commit this
+node_modules/
