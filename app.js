@@ -4,7 +4,14 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var elasticsearch = require('elasticsearch');
+var config = require('./lib/config');
+
 var app = express();
+const client = new elasticsearch.Client({
+  host: config.elasticsearch.host,
+  log: 'trace'
+});
 
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
@@ -22,11 +29,21 @@ app.use(express.static(path.join(__dirname, 'public')));
 var search = require('./routes/search');
 app.use('/events/search', search);
 
+var getEvents = require('./routes/events');
+app.use('/events/get', getEvents);
+
+/*
 var create = require('./routes/create');
 app.use('/events/create', create);
+*/
 // -- End Routes
 
 
+
+app.use(function(req, res, next) {
+  req.client = client;
+  next();
+});
 
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

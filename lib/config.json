@@ -1,10 +1,5 @@
 {
     "elasticsearch": {
-        "host": "localhost",
-        "port": "9200"
-    },
-    "google": {
-        "clientId": "504091725586-unbetrucfjvg8serl4u4buv8i78vl6tn.apps.googleusercontent.com"
-    },
-    "jwtSecret": "xxx"
+        "host": "https://search-octograde-fpz5otht3b3tbslivwa5xcdvle.us-west-1.es.amazonaws.com"
+    }
 }
