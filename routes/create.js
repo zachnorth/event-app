@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
+var createEvent = require('../lib/event/createEvent');
+
 /*
 Post parameters:
   name: The name of the event
@@ -9,14 +11,32 @@ Post parameters:
 */
 
 router.post('/', function(req, res, next) {
-  
-  var name = req.body.name;
-  var location = req.body.location;
-  var tags = req.body.tags;
+
+  var event = {
+    title: req.body.title,
+    image: req.body.image,
+    tags: req.body.tags,
+    description: req.body.description,
+    location: req.body.location, 
+    address: req.body.address,
+    locationDetails: req.body.locationDetails,
+    eventTimestampStart: req.body.eventTimestampStart,
+    eventTimestampEnd: req.body.eventTimestampEnd
+  };
   
   // TODO create event
+
+  createEvent({ 
+    client: req.client,
+    event
+  })
+    .then(result => res.send("Ok"))
+    .catch(error => {
+      console.error(error);
+      res.send("Error")
+    });
   
-  res.send("Ok");
+  // res.send("Ok");
 });
 
 module.exports = router;
