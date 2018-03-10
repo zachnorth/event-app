@@ -5,9 +5,23 @@ var createEvent = require('../lib/event/createEvent');
 
 /*
 Post parameters:
-  name: The name of the event
-  location: The location of the event
-  tags: An array of event tags
+  title: Title of the event
+  image: Optional image for the event
+  tags: Array of event tags
+  description: Event description
+  location: Geo point for event: 
+    { lat: 123 lon: -245}
+  address: Address for the event:  
+    {
+      houseNumber: 3245,
+      streetName: 'Canyon Street',
+      townName: 'Boulder',
+      state: 'CO',
+      zipCode: '12345'
+    }
+  locationDetails: String of additional details relating to the location
+  eventTimestampStart: JS date, timestamp start of the event
+  eventTimestampEnd: JS date, timestamp end of the event
 */
 
 router.post('/', function(req, res, next) {
@@ -24,8 +38,6 @@ router.post('/', function(req, res, next) {
     eventTimestampEnd: req.body.eventTimestampEnd
   };
   
-  // TODO create event
-
   createEvent({ 
     client: req.client,
     event
@@ -35,8 +47,7 @@ router.post('/', function(req, res, next) {
       console.error(error);
       res.send("Error")
     });
-  
-  // res.send("Ok");
+
 });
 
 module.exports = router;

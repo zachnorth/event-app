@@ -29,8 +29,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 var search = require('./routes/search');
 app.use('/events/search', search);
 
+var getEvents = require('./routes/events');
+app.use('/events/get', getEvents);
+
+/*
 var create = require('./routes/create');
 app.use('/events/create', create);
+*/
 // -- End Routes
 
 
