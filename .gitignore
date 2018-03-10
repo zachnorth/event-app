@@ -64,3 +64,6 @@ typings/
 
 # For the love of God, don't commit this
 node_modules/
+
+# Vim files
+*~
